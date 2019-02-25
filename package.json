@@ -1,0 +1,31 @@
+{
+  "name": "gameql",
+  "version": "1.0.0",
+  "description": "Game graphql API",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yacaeh/gameql.git"
+  },
+  "keywords": [
+    "graphql"
+  ],
+  "author": "Yoonseok Choi yoonseok@metalhead.kr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yacaeh/gameql/issues"
+  },
+  "homepage": "https://github.com/yacaeh/gameql#readme",
+  "dependencies": {
+    "graphql-yoga": "^1.17.1",
+    "node-fetch": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1"
+  }
+}

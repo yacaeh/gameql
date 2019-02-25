@@ -1,0 +1,28 @@
+type Query{
+    users:[User]!
+    user(id:Int!): User!
+    games(limit:Int, rating:Float):[Game]!
+    game(id:Int!):Game
+}
+
+type User {
+    id:Int!
+    name:String!
+    age: Int!
+    gender:String!
+}
+
+type Game {
+    id:Int!
+    title:String!
+    rating:Float!
+    summary:String!
+    language:String!
+    medium_cover_image:String!
+}
+
+type Mutation {
+    addGame(name:String!,score:Int!): Game!
+    deleteGame(id:Int!):Boolean!
+    updateGame(id:Int!,name:String!,score:Int!):Game!
+} 
