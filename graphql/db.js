@@ -1,13 +1,13 @@
 import fetch from 'node-fetch';
+import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
+
 const API_URL = ""
 
-export const getGames = (limit, rating) => {
+export const getGames = (limit) => {
     let REQUEST_URL = API_URL;
     if(limit>0){
         REQUEST_URL += `limit=${limit}`;
-    }
-    if(rating > 0){
-        REQUEST_URL += `&minimum_rating=${rating}`;
     }
     return fetch(`${REQUEST_URL}`)
     .then(res => res.json())
@@ -55,31 +55,28 @@ export const users = [
 
 export let games = [
     {
-        id:0,
-        name:"Game1",
-        score:9
+        id:"0",
+        title:"Game1"
     },
     {
-        id:1,
-        name:"Game2",
-        score:2
+        id:"1",
+        title:"Game2"
     },
     {
-        id:2,
-        name:"Game3",
-        score:7
+        id:"2",
+        title:"Game3"
     },
     {
-        id:3,
-        name:"Game4",
-        score:5
+        id:"3",
+        title:"Game4"
     },
     {
-        id:4,
-        name:"Game5",
-        score:10
+        id:"4",
+        title:"Game5"
     }
 ];
+
+export let playlist =[];
 
 export const getUserById = id => {
     const filteredUsers = users.filter(user => user.id === String(id) );
@@ -87,15 +84,18 @@ export const getUserById = id => {
 }
 
 export const getGameById = id => {
-    const filteredGames = games.filter(game => game.id === id );
+    const filteredGames = games.filter(game => game.id === String(id) );
     return filteredGames[0];
 }
 
-
+export const getPlayById = id => {
+    const filteredPlaylist = playlist.filter(play => play.id === String(id) );
+    return filteredPlaylist[0];
+}
 // export const getGames = () => games;
 
 export const deleteGame = id => {
-    const cleanGames = games.filter(game => game.id !== id);
+    const cleanGames = games.filter(game => game.id !== String(id));
     if(games.length>cleanGames.length){
             games = cleanGames;
             return true;
@@ -104,19 +104,32 @@ export const deleteGame = id => {
     }
 }
 
-export const addGame = (name, score)=>{
+export const addGame = (title,summary,cover_images)=>{
     const newGame = {
         id:`${games.length}`,
-        name,
-        score
+        title,
+        summary,
+        cover_images
     };
     games.push(newGame);
     return newGame;
 }
 
-export const updateGame = (id,name,score)=>{
-    const currentGame = games.filter(game => game.id ===id);
-    currentGame[0].name = name;
-    currentGame[0].score = score;
+export const updateGame = (id,newtitle,summary,cover_images)=>{
+    let currentGame = games.filter(game => game.id === String(id));
+    currentGame[0].title = newtitle;
+    currentGame[0].summary = summary;
+    currentGame[0].cover_images = cover_images;
     return currentGame[0];
+}
+
+
+export const addPlay = (title, time)=>{
+    const newPlay = {
+        id:`${playlist.length}`,
+        title,
+        time
+    };
+    playlist.push(newPlay);
+    return newPlay;
 }

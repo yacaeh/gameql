@@ -1,24 +1,30 @@
 import {
     users,
+    games,
+    playlist,
     getUserById,
     getGames,
     getGameById,
     addGame,
     deleteGame,
-    updateGame
+    updateGame,
+    addPlay
 } from "./db"
 
 const resolvers = {
     Query: {
         users: () => users,
         user: (_, {id}) => getUserById(id),
-        games: (_,{limit,rating}) => getGames(limit,rating),
-        game: (_, {id}) => getGameById(id)
+        games: () => games,
+        game: (_, {id}) => getGameById(id),
+        playlist:(_,{limit}) => getPlaylist(limit),
+        play:(_, {id}) => getPlayById(id)
     },
     Mutation:{
-        addGame: (_,{name,score})=> addGame(name, score),
+        addGame: (_,{title,summary,cover_images})=> addGame(title,summary,cover_images),
         deleteGame:(_,{id})=> deleteGame(id),
-        updateGame:(_,{id,name,score})=>updateGame(id,name,score)
+        updateGame:(_,{id,title,summary,cover_images})=>updateGame(id,title,summary,cover_images),
+        addPlay: (_,{title,time})=> addPlay(title,time)
     }
 };
 
