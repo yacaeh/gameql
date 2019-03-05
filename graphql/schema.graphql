@@ -1,35 +1,38 @@
 type Query{
     users:[User]!
-    user(id:Int!): User!
+    user(_id:String!): User!
     games:[Game]!
-    game(id:Int!):Game!
+    game(_id:String!):Game!
     playlist(limit:Int):[Play]!
-    play(id:Int!):Play!
+    play(_id:String!):Play!
 }
 
 type User {
-    id:Int!
+    _id:String!
     name:String!
-    age: Int!
-    gender:String!
+    age: Int
+    gender:String
 }
 
 type Game {
-    id:Int!
+    _id:String!
     title:String!
     summary:String
     cover_images:[[String]]
 }
 
 type Play {
-    id:Int!
+    _id:String!
     title:String!
     time:String!
 }
 
 type Mutation {
+    addUser(name:String!,age:Int!,gender:String!):User!
+    updateUser(_id:String!,name:String):User!
+    deleteUser(_id:String!):Boolean!
     addGame(title:String!,summary:String,cover_images:[[String]]): Game!
-    deleteGame(id:Int!):Boolean!
-    updateGame(id:Int!,title:String!,summary:String,cover_images:[[String]]):Game!
+    deleteGame(_id:String!):Boolean!
+    updateGame(_id:String!,title:String!,summary:String,cover_images:[[String]]):Game!
     addPlay(title:String!,time:String!): Play!
 } 
