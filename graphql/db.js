@@ -134,6 +134,7 @@ export const getUserById = id => {
     // const filteredUsers = users.filter(user => user.id === String(id) );
     // return filteredUsers[0];
 }
+
 export const addUser = (name,age,gender)=>{
     let newUser = new users({
         name,
@@ -165,7 +166,6 @@ export const deleteUser = (id) =>{
             return true;
         }
     });
-
 }
 
 export const updateUser = (id,name) =>{

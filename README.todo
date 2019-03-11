@@ -1,0 +1,15 @@
+Todos:
+☐ Fix update mutation
+☐ Integrate with Management Tool
+☐ Handle TDD
+☐ Query for Game
+☐ Mutation(Createm, Update, Delete) for Game
+☐ Query for Playlist
+☐ Mutation(Createm, Update, Delete) for Playlist
+
+Done:
+✔ Query for User
+✔ Mutation(Createm, Delete) for User
+
+Cancelled:
+✘ 
