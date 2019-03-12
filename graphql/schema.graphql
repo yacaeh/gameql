@@ -3,7 +3,7 @@ type Query{
     user(_id:String!): User!
     games:[Game]!
     game(_id:String!):Game!
-    playlist(limit:Int):[Play]!
+    playlist:[Play]!
     play(_id:String!):Play!
 }
 
@@ -12,6 +12,7 @@ type User {
     name:String!
     age: Int
     gender:String
+    # ,games:[Game]
 }
 
 type Game {
@@ -23,13 +24,13 @@ type Game {
 
 type Play {
     _id:String!
-    title:String!
+    game:String!
     time:String!
 }
 
 type Mutation {
     addUser(name:String!,age:Int!,gender:String!):User!
-    updateUser(_id:String!,name:String):User!
+    updateUser(_id:String!,name:String,age:Int,gender:String):User!
     deleteUser(_id:String!):Boolean!
     addGame(title:String!,summary:String,cover_images:[[String]]): Game!
     deleteGame(_id:String!):Boolean!

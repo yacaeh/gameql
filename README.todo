@@ -1,6 +1,7 @@
 Todos:
-☐ Fix update mutation
 ☐ Integrate with Management Tool
+☐ Add game field for users
+☐ Fragment type use
 ☐ Handle TDD
 ☐ Query for Game
 ☐ Mutation(Createm, Update, Delete) for Game
@@ -9,7 +10,7 @@ Todos:
 
 Done:
 ✔ Query for User
-✔ Mutation(Createm, Delete) for User
+✔ Mutation(Create, Update Delete) for User
 
 Cancelled:
 ✘ 

@@ -26,7 +26,7 @@ const resolvers = {
     },
     Mutation:{
         addUser: (_,{name,age,gender})=> addUser(name,age,gender),
-        updateUser:(_,{name})=> updateUser(name),
+        updateUser:(_,{_id,name,age,gender})=> updateUser(_id,name,age,gender),
         deleteUser:(_,{_id})=> deleteUser(_id),
         addGame: (_,{title,summary,cover_images})=> addGame(title,summary,cover_images),
         deleteGame:(_,{_id})=> deleteGame(_id),

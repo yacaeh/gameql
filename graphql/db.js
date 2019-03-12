@@ -158,27 +158,29 @@ export const addUser = (name,age,gender)=>{
 export const deleteUser = (id) =>{
     users.findByIdAndDelete(id, function(err, result) {
         if (err) {
-            console.log(err);
+            console.log("err");
             return false;
         }
         else{
-            console.log(result);
+            console.log("result");
             return true;
         }
     });
 }
 
-export const updateUser = (id,name) =>{
-    users.findByIdAndUpdate({"_id":id}, {"name":name}, function(err, result) {
-        if (err) {
-            console.log(err);
-            return;
-        }
-        else{
-            console.log(result);
-            return result;
-        }
-    });
+export const updateUser = (id,name,age,gender) =>{
+    console.log("search for ID: "+id+name+age+gender);
+    //missing variable handle
+        return users.findByIdAndUpdate(id, {"name":name,"age":age,"gender":gender}, function(err, result) {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            else{
+                console.log(result);
+                return result;
+            }
+        });
 }
 
 export const getGameById = _id => {
