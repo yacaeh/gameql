@@ -1,5 +1,4 @@
 Todos:
-☐ Integrate with Management Tool
 ☐ Add game field for users
 ☐ Fragment type use
 ☐ Handle TDD
@@ -11,6 +10,7 @@ Todos:
 Done:
 ✔ Query for User
 ✔ Mutation(Create, Update Delete) for User
+✔ Integrate with Management Tool
 
 Cancelled:
 ✘ 

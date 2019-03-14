@@ -156,17 +156,15 @@ export const addUser = (name,age,gender)=>{
 }
 
 export const deleteUser = (id) =>{
-    users.findByIdAndDelete(id, function(err, result) {
-        if (err) {
-            console.log("err");
-            return false;
-        }
-        else{
-            console.log("result");
-            return true;
-        }
-    });
+    const removeduser = users.findOneAndRemove({ _id: id }).exec();
+    if (!removeduser) {
+        throw new Error('Error')
+    }
+    else{
+        return removeduser;
+    }
 }
+
 
 export const updateUser = (id,name,age,gender) =>{
     console.log("search for ID: "+id+name+age+gender);
